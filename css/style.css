@@ -1,0 +1,56 @@
+html
+{
+    font-size:10px;
+}
+
+
+.blueButton
+{
+    position:absolute;
+    background-color:#0A3871;
+    color:#E5E5E5;
+    border-radius:2.4rem;
+    border: .1rem solid #0A3871;
+    top:39.25vh;
+    right:39.022vw;
+}
+
+.whiteButton
+{
+    background-color:#E5E5E5;
+    color:#0A3871;
+    border: .1rem solid #0A3871;
+    border-radius:2.4rem;
+    position:absolute;
+    bottom:39.35vh;
+    right:39.65vw;
+
+
+}
+
+#aluraLogo
+{
+    display:block;
+    width:2.15vw;
+    height:4.68vh;
+    position:absolute;
+    left:5.83vw;
+    top:3.90vh;
+    
+}
+
+
+#initGameButton
+{
+    width:22vw;
+    height:11.12vh;
+    font-size:1.8rem;
+}
+
+#addWordButton
+{
+    width:19.44vw;
+    height:6.54vh;
+    font-size:1.6rem;
+
+}
