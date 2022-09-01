@@ -12,6 +12,12 @@ html
     border: .11vw solid #0A3871;
 }
 
+.blueButton:hover
+{
+    background-color:#0b3d7b;
+    transform:scale(1.01);
+}
+
 .whiteButton
 {
     background-color:#E5E5E5;
@@ -19,6 +25,13 @@ html
     border: .11vw solid #0A3871;
     border-radius:1.71vw;/*24px*/
 
+}
+
+.whiteButton:hover
+{
+    background-color:#bfc8ce;
+    color:#0A3871;
+    transform:scale(1.01);
 }
 
 #aluraLogo
@@ -36,6 +49,7 @@ html
 #initGameButton
 {
     width:22%;
+    font-family: 'Inter';
     height:11.12%;
     font-size:1.125rem;
     overflow:hidden;
@@ -47,6 +61,7 @@ html
 
 #addWordButton
 {
+    font-family: 'Inter';
     width:19.44%;
     height:6.54%;
     font-size:1rem;
@@ -58,4 +73,112 @@ html
     right:40.34%;
 
 
+}
+
+
+.newWordInput
+{
+    font-family: 'Inter';
+    position:absolute;
+    color:#0A3871;
+    font-size:2rem;
+    left:26.11%;
+    top:25%;
+    outline:none;
+    border:none;
+    
+}
+.newWordInput::placeholder
+{
+    color:#0A3871;
+    font-size:2rem;
+    font-family: 'Inter';
+
+}
+
+#saveAndStartButton
+{
+    font-family: 'Inter';
+    width:23.05%;
+    height:6.54%;
+    font-size:1.125rem;
+    overflow:hidden;
+    position:absolute;
+    top:68.45%;
+    left:26.11%;
+    
+}
+
+#cancelButton
+{
+    width:23.05%;
+    height:6.54%;
+    font-size:1rem;
+    font-family: 'Inter';
+    position:absolute;
+    box-sizing: border-box;
+    overflow:hidden;
+    word-wrap:break-word;
+    top:68.45%;
+    right:26.11%;
+    
+
+
+}
+
+.disclaimerBox
+{
+    position:absolute;
+    width:7.98%;
+    height:1.75%;
+    top:65.13%;
+    left:26.11%;
+    
+}
+
+#disclaimerNewWord
+{
+    font-size:.75rem;
+    color:#495057;
+}
+
+
+#newGameButton
+{
+    width:23.05%;
+    height:6.54%;
+    font-size:1.125rem;
+    font-family: 'Inter';
+
+    overflow:hidden;
+    position:absolute;
+    top:87.98%;
+    left:26.11%;
+    
+}
+
+#surrenderButton
+{
+    width:23.05%;
+    height:6.54%;
+    font-family: 'Inter';
+    font-size:1rem;
+    position:absolute;
+    box-sizing: border-box;
+    overflow:hidden;
+    word-wrap:break-word;
+    top:87.98%;
+    right:26.11%;
+
+}
+
+.invisible
+{
+    opacity:0%;
+}
+
+.hide
+
+{
+    display:none;
 }
