@@ -182,3 +182,21 @@ html
 {
     display:none;
 }
+
+
+
+
+
+
+/*Game Layer styles*/
+
+
+#wordBoard
+{
+    position:absolute;
+    top:61.32%;
+    left:33.88%;
+    width:32.22%;
+    height:8.98%;
+    background-color:red;
+}
