@@ -28,11 +28,8 @@
 
             <section id="addWordLayer" class="hide">
                 <input type="text"class="newWordInput" placeholder="Ingrese una palabra">
-
                 <div class="disclaimerBox">
-
                     <span id="disclaimerNewWord">Máx. de 8 letras</span>
-
                 </div>
                 <button class="blueButton" id="saveAndStartButton">Save and Start</button>
                 <button class="whiteButton" id="cancelButton">Cancel</button>
@@ -40,20 +37,23 @@
 
             <section id="gameLayer" class="hide">
                 <div id="displayHangman">
+               </div>
 
-                </div>
-
-                <div id="wordBoard">
+                <div id="keyBoard">
                     <ul class="maskedWord">
                     </ul>
+                    <input id="hiddenInput"type="text">
                 </div>
+                
                 <button class="blueButton" id="newGameButton">New game</button>
                 <button class="whiteButton" id="surrenderButton">Surrender</button>
             </section>
 
-
-            
-
+            <section id="gameOverLayer" class="hide">
+                <span id="gameOverScreen"></span>
+                <span id="unmaskedWord"></span>
+                <button class="whiteButton" id="exitButton">Exit</button>
+            </section>
         </main>
 
 
