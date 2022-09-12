@@ -6,7 +6,6 @@ function randomWord(vector)
 {
     if(!vector.length)
     {
-       console.log("empty array");
        return -1;
     }
 
@@ -53,6 +52,7 @@ function newGame(levels)
     var game={
         word:randomWord(levels).secretWord.toUpperCase(),
         attemps:10,//valor hardcodeado
+        miss:0,
         hits:0,
         isGameOver:false,
         usedLetters:'',
@@ -62,36 +62,38 @@ function newGame(levels)
     return game;
 }
 
+function newLevel(string)
+{
+    var level={
+        secretWord:string
+    };
+
+return level;
+}
 
 function tryOut(letter,game)//Probar letra 
 {
     let temp;
     letter=letter.toUpperCase();
     if(game.isGameOver!=false)
-    {
-        console.log("Juego terminado");
-        return -1;
+    {        return -1;
     }   
     if(count(letter,game.usedLetters))
     {
-        console.log("letra ya usada");
         return 0;
     }
 
         game.usedLetters+=letter;
-        console.log(game.usedLetters);
-
 
 
     if(!(temp=count(letter,game.word)))
         {
-            console.log("Sin aciertos");
             game.attemps--;
-            console.log(game.attemps);
+            displayHangman(game);
+            game.miss++;
         }
     else
     {
-        console.log("Aciertos"+temp);
         unmaskLetter(letter,game);
         game.hits+=temp;
     }
@@ -112,9 +114,9 @@ function unmaskLetter(letter,game){
 function checkStatus(game){
     
     if(game.hits==(game.word).length)
-    {   console.log("Ganaste");
+    {   
         var gameOverScreen=gameOverLayer.querySelector("#gameOverScreen");
-        gameOverScreen.textContent="Ganaste";
+        gameOverScreen.textContent="GANASTE";
         game.isGameOver=true;
         show(gameOverLayer);
         hide(gameLayer);
@@ -126,19 +128,19 @@ function checkStatus(game){
 
     else if(!game.attemps)
     {
-        console.log("perdiste");
+        
         game.isGameOver=true;
 
-        console.log("Perdiste");
+        
         var gameOverScreen=gameOverLayer.querySelector("#gameOverScreen");
-        gameOverScreen.textContent="Perdiste";
+        gameOverScreen.textContent="PERDISTE";
         game.isGameOver=true;
         show(gameOverLayer);
+        
         hide(gameLayer);
         return 0;
     }
 
-    console.log("Intentos restantes: "+game.attemps)
 
 }
 //this function counts the occurrences of the char c  in a string s  (AGREGAR A MIS UTILS)
@@ -163,18 +165,36 @@ function finishGame(game)
     {
         li.remove();
     });
+     hideHangman(hangman);
+
 return 0;
 }
 
 function refreshKeyBoard(event)
 {
-    console.log(this.value);
-    tryOut(this.value,gameSanti);
+    tryOut(this.value,gameInstance);
     event.target.value='';
 
 }
+
+
+
+
+function displayHangman(game)
+{
+    show(hangman[game.miss]);
+}
+function hideHangman(hangman)
+{
+    hangman.forEach(function (value)
+    {
+        hide(value);
+    });
+}
+
 var levels=importLevels("JSON/levels.json");
 var hiddenInput=document.querySelector("#hiddenInput");
 hiddenInput.addEventListener("input",refreshKeyBoard);
-
-var gameSanti;
+var hangman=document.querySelectorAll(".hangman");
+hideHangman(hangman);
+var gameInstance;

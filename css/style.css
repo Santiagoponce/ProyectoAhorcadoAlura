@@ -219,3 +219,40 @@ html
     font-size:2rem;
     text-align:center;
 }
+
+#gameOverScreen
+{
+    font-size:5rem;
+    position:absolute;
+    font-family: 'Inter';
+    color: #0A3871;
+    left:30%;
+    top:25%;
+}
+
+#exitButton
+{
+
+        width:23.05%;
+        height:6.54%;
+        font-family: 'Inter';
+        font-size:1rem;
+        position:absolute;
+        box-sizing: border-box;
+        overflow:hidden;
+        word-wrap:break-word;
+        top:87.98%;
+        right:40%;
+
+
+}
+
+
+#displayHangman
+{
+    position:absolute;
+    width:20.41%;
+    height:35.15%;
+    left:39.8%;
+    top:14.45%;
+}

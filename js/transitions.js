@@ -1,7 +1,8 @@
-//js de transisiones entre "pantallas"
+//Archivo js en el cual se implementan las transiciones entre las distintas pantallas del juego
 
 var initButton=document.querySelector("#initGameButton");
 var addWordButton=document.querySelector("#addWordButton");
+
 
 var saveAndStartButton=document.querySelector("#saveAndStartButton");
 var cancelButton=document.querySelector("#cancelButton");
@@ -9,14 +10,16 @@ var cancelButton=document.querySelector("#cancelButton");
 
 var newGameButton=document.querySelector("#newGameButton");
 var surrenderButton=document.querySelector("#surrenderButton");
-
+var newWordInput=document.querySelector(".newWordInput");
 var exitButton=document.querySelector("#exitButton");
 
 var homeLayer=document.querySelector("#homeLayer");//Visible inicialmente
 var gameLayer=document.querySelector("#gameLayer");//Oculta inicialmente
 var addWordLayer=document.querySelector("#addWordLayer");//Oculta inicialmente
 var gameOverLayer=document.querySelector("#gameOverLayer");//Oculta inicialmente
-
+var html=document.querySelector("html");
+html.addEventListener("click",function(){hiddenInput.focus();
+})
 
 
 
@@ -40,8 +43,8 @@ initButton.addEventListener("click",initGame);
 
 function initGame()
 {
-    gameSanti =newGame(levels);
-    launchBoard(gameSanti);
+    gameInstance =newGame(levels);
+    launchBoard(gameInstance);
     hide(homeLayer);
     show(gameLayer);
     hiddenInput.focus();
@@ -54,7 +57,6 @@ addWordButton.addEventListener("click",addWord);
 
 function addWord()
 {
-    console.log("Boton pulsado add");
     hide(homeLayer);
     show(addWordLayer);
 }
@@ -63,9 +65,9 @@ cancelButton.addEventListener("click",cancel);
 
 function cancel()
 {
-    console.log("Boton pulsado cancelit");
     hide(addWordLayer);
     show(homeLayer);
+    newWordInput.value='';
 }
 
 
@@ -73,15 +75,16 @@ saveAndStartButton.addEventListener("click",saveAndStart);
 function saveAndStart(){
     hide(addWordLayer);
     show(gameLayer);
-    hiddenInput.focus();
+    levels.push(newLevel(newWordInput.value));
+    newWordInput.value='';
+    initGame();
 
- 
 
 }
 
 surrenderButton.addEventListener("click",surrender);
 function surrender(){
-    finishGame(gameSanti);
+    finishGame(gameInstance);
     hide(gameLayer);
     show(homeLayer);
 
@@ -90,16 +93,16 @@ function surrender(){
 newGameButton.addEventListener("click",newGame);
 function newGame()
 {
-    finishGame(gameSanti);
-    gameSanti =newGame(levels);
+    finishGame(gameInstance);
+    gameInstance =newGame(levels);
     hiddenInput.focus();
-    launchBoard(gameSanti);
+    launchBoard(gameInstance);
 }
 
 exitButton.addEventListener("click",exit);
 function exit()
 {
-    finishGame(gameSanti);
+    finishGame(gameInstance);
     hide(gameOverLayer);
     show(homeLayer);
     return 0;
